@@ -2,14 +2,64 @@ $spot-list-width: 460px;
 
 @import "spot-list/SpotList";
 
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .Search {
     width: 100%;
 }
 
 .Search-content {
     position: absolute;
+    background: $color-fuel;
     top: 0;
     left: $spot-list-width;
     width: calc(100vw - #{$spot-list-width});
     height: 100vh;
+}
+
+.SpotModal {
+    @include center();
+    opacity: 0;
+    background: $color-white;
+    color: $color-fuel;
+    padding: 40px;
+    border-radius: 5px;
+    animation: fade-in 0.5s 0.2s ease-in;
+    animation-fill-mode: forwards;
+    h1 {
+        text-align: center;
+    }
+    .SpotModalClose {
+        position: absolute;
+        color: $color-cement;
+        top: 20px;
+        right: 20px;
+    }
+    .SpotModalButtonContainer {
+        text-align: center;
+        margin-top: 1em;
+    }
+    .SpotModalButton {
+        background: $color-social-behance;
+        color: $color-white;
+    }
+    &.SpotModalClosing {
+        animation: fade-out 0s 0.2s ease-in;
+    }
 }
