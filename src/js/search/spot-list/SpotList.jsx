@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import TextButton from '../../common/TextButton';
 import SpotItem from '../../spot/SpotItem';
+import axios from 'axios';
 
 export default class SpotList extends PureComponent {
     static propTypes = {
@@ -11,7 +12,19 @@ export default class SpotList extends PureComponent {
     };
 
     _onDetailsClick = spot => {
-        this.props.setSpot(spot);
+        this._loadSpotDetail(spot.id);
+    }
+
+    async _loadSpotDetail(id) {
+        try {
+            const {
+                data
+            } = await axios.get('/spots/' + id);
+
+            this.props.setSpot(data)
+        } catch (error) {
+            console.log('Error loading spot data: ', error); // eslint-disable-line no-console
+        }
     }
 
     render() {
@@ -41,7 +54,6 @@ export default class SpotList extends PureComponent {
                         );
                     })}
                 </div>
-
             </div>
         );
     }

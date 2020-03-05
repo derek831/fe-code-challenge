@@ -43,7 +43,7 @@
     "react-app-rewired": "2.1.5",
     "react-dom": "16.13.0",
     "react-hot-loader": "4.8.4",
-    "react-redux": "7.0.3",
+    "react-redux": "7.1.0",
     "react-router-dom": "5.0.0",
     "react-scripts": "3.4.0",
     "redux": "4.0.1",
@@ -52,5 +52,7 @@
     "regenerator-runtime": "0.13.2",
     "transitionEnd": "1.0.2"
   },
-  "browserslist": ["defaults"]
+  "browserslist": [
+    "defaults"
+  ]
 }
